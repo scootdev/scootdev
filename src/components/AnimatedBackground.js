@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Sketch from 'react-p5';
 
 function AnimatedBackground() {
-    const [orbs, setOrbs] = useState([
-        { x: 200, y: 200, xSpeed: 1, ySpeed: 2, radius: 150 },
-        { x: 400, y: 400, xSpeed: -2, ySpeed: -1, radius: 150 }
-    ]);
+    const waveFrequency = 0.005;
+    const waveAmplitude = 10;
+    const waveWidth = 20; // Adjust this value to change the width of the wave effect
 
     const setup = (p5, canvasParentRef) => {
         const canvas = p5.createCanvas(p5.windowWidth, p5.windowHeight);
@@ -14,34 +13,36 @@ function AnimatedBackground() {
 
     const draw = (p5) => {
         p5.background('#1e1e1e');
-        p5.stroke('#E6E6FA');
         p5.strokeWeight(0.25);
 
-        for (let i = 0; i < p5.height; i += 20) p5.line(0, i, p5.width, i);
-        for (let i = 0; i < p5.width; i += 20) p5.line(i, 0, i, p5.height);
+        const time = p5.millis() * 0.001;
 
-        orbs.forEach((orb, index) => {
-            drawGradientOrb(p5, orb.x, orb.y, orb.radius);
+        // Draw horizontal lines
+        for (let i = 0; i < p5.height; i += 20) {
+            const yOffset = p5.sin((i + time * 100) * waveFrequency) * waveAmplitude;
+            const distanceToWave = Math.abs(yOffset);
 
-            orb.x += orb.xSpeed;
-            orb.y += orb.ySpeed;
+            if (distanceToWave < waveWidth) {
+                p5.stroke('#BFBFFE'); // Lavender color
+            } else {
+                p5.stroke('#1e1e1e'); // Background color
+            }
 
-            if (orb.x < 0 || orb.x > p5.width) orb.xSpeed *= -1;
-            if (orb.y < 0 || orb.y > p5.height) orb.ySpeed *= -1;
+            p5.line(0, i + yOffset, p5.width, i + yOffset);
+        }
 
-            orbs[index] = orb; // Update the orb with the new position
-        });
-        setOrbs([...orbs]); // Update the orbs state
-    };
+        // Draw vertical lines
+        for (let i = 0; i < p5.width; i += 20) {
+            const xOffset = p5.sin((i + time * 100) * waveFrequency) * waveAmplitude;
+            const distanceToWave = Math.abs(xOffset);
 
-    const drawGradientOrb = (p5, x, y, radius) => {
-        const steps = 50;
-        for (let i = 0; i < steps; i++) {
-            const r = p5.map(i, 0, steps, radius, 0);
-            const a = p5.map(i, 0, steps, 0, 255);
-            p5.fill(30, 30, 30, a);
-            p5.noStroke();
-            p5.ellipse(x, y, r * 2);
+            if (distanceToWave < waveWidth) {
+                p5.stroke('#BFBFFE'); // Lavender color
+            } else {
+                p5.stroke('#1e1e1e'); // Background color
+            }
+
+            p5.line(i + xOffset, 0, i + xOffset, p5.height);
         }
     };
 
