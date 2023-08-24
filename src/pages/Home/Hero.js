@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import AnimatedBackground from '../../components/AnimatedBackground';
 import { Typography, Container, Grid, Paper, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -10,8 +9,6 @@ function Hero() {
     const containerRef = useRef(); // Define containerRef here
 
     return (
-        <div ref={containerRef} style={{ margin: 0}}>
-                <AnimatedBackground containerRef={containerRef} />
                 <div style={{ padding: '0' }}>
                     <Container style={{ padding: '40px' }}>
                         <Grid container spacing={3} style={{ marginTop: '-10px' }} justifyContent="center">
@@ -22,7 +19,7 @@ function Hero() {
                                     <IconButton href="https://twitter.com/scoot__o7" target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', top: '50%', left: '5%' }}><TwitterIcon /></IconButton>
                                     <IconButton href="/resume.pdf" target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', bottom: '10%', left: '25%' }}><DescriptionIcon /></IconButton>
                                 </div>
-                                <img src="/scoot.jpg" alt="A dashing photo of Scoot" style={{ width: '250px', borderRadius: '50%' }} />
+                                <img src="img/scoot.jpg" alt="A dashing photo of Scoot" style={{ width: '250px', borderRadius: '50%' }} />
                             </Grid>
                             <Grid item xs={12} sm={6} md={5}>
                                 <Typography variant="h2">
@@ -35,7 +32,6 @@ function Hero() {
                         </Grid>
                     </Container>
                 </div>
-        </div>
     );
 }
 

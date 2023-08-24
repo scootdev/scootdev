@@ -19,7 +19,6 @@ function Bio() {
             <Typography variant="body1" paragraph>
                 Interested in learning more about my work or discussing potential opportunities? I'd love to hear from you.
             </Typography>
-
             <Button variant="contained" color="primary" href="mailto:scoootdev@gmail.com" style={{ margin: '20px 0' }}>
                 Contact Me
             </Button>

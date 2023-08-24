@@ -1,24 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Hero from './Hero';
 import Bio from './Bio';
+import Skills from './Skills';
 import CodeSnippet from '../../components/CodeSnippet';
 import { Container, Paper } from '@mui/material';
+import AnimatedBackground from '../../components/AnimatedBackground';
+import WindowContainer from '../../components/WindowContainer';
+
+function TestWindow({ title }) {
+    return <div style={{ padding: '5px' }}>This is {title} window.</div>;
+}
 
 function Home() {
     const codeString = `if (name == 'Scott' || 'scoot') {
-        currentTitle = 'Full-Stack Web Developer'
-      }`;
+    currentTitle = 'Full-Stack Web Developer'
+  }`;
+
+    const [activeWindow, setActiveWindow] = useState(null); // Add active window state
 
     return (
-        <>
-            <Hero></Hero>
-            <Paper elevation={5}>
-            <Container>
-                <CodeSnippet code={codeString} language="javascript" />
-                <Bio></Bio>
-            </Container>
-            </Paper>
-        </>
+        <div style={{ margin: 0 }}>
+            <AnimatedBackground />
+            <div style={{ padding: '0' }}>
+                <Hero />
+                <Paper elevation={2}>
+                    <Container style={{ padding: '20px' }}>
+                        <div style={{ width: '100%', height: '600px', position: 'relative', overflow: 'hidden' }}>
+                            <WindowContainer
+                                title="Draggable Window"
+                                style={{ width: '100%' }}
+                                id="draggableWindow" // Add an id
+                                setActiveWindow={setActiveWindow} // Pass setActiveWindow
+                                isActive={activeWindow === 'draggableWindow'} // Check if it's the active window
+                            >                                
+                            <CodeSnippet code={codeString} language="javascript" />
+                            </WindowContainer>
+                            <div style={{ position: 'absolute', bottom: 0 }}>
+                                <Bio />
+                            </div>
+                        </div>
+                    </Container>
+                </Paper>
+                <div style={{ width: '100%', position: 'relative', overflow: 'hidden' }}>
+                    <Skills></Skills>
+                </div>
+            </div>
+        </div>
     );
 }
 

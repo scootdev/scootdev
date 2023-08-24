@@ -11,6 +11,10 @@ function AnimatedBackground() {
         canvas.parent(canvasParentRef);
     };
 
+    const windowResized = (p5) => {
+        p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+    };
+
     const draw = (p5) => {
         p5.background('#1e1e1e');
         p5.strokeWeight(0.25);
@@ -47,8 +51,8 @@ function AnimatedBackground() {
     };
 
     return (
-        <div style={{ position: 'absolute', width: '100%', height: '100%', zIndex: -1 }}>
-            <Sketch setup={setup} draw={draw} />
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+            <Sketch setup={setup} draw={draw} windowResized={windowResized} />
         </div>
     );
 }
