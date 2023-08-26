@@ -8,7 +8,7 @@ function WindowContainer({ children, style, title, id, setActiveWindow, isActive
     };
 
     const handleDragStart = () => {
-        handleMakeActive(); // Set this window as active when dragging starts
+        handleMakeActive();
     };
 
     return (

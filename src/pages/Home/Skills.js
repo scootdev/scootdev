@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid as MuiGrid, Paper } from '@mui/material';
+import { Grid as MuiGrid, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import WindowContainer from '../../components/WindowContainer';
 import JavaScriptIcon from './icons/javascript.svg';
@@ -46,6 +46,7 @@ const SkillIcon = styled('img')({
     width: 50,
     height: 50,
     marginRight: 20,
+    marginLeft: 20
 });
 
 function SkillCategory({ icons }) {
@@ -67,12 +68,28 @@ function Skills() {
         setActiveWindow(windowId);
     };
 
+    // Function to get positions from localStorage
+    const getSavedPositions = (id) => {
+        const savedPosition = localStorage.getItem(id);
+        return savedPosition ? JSON.parse(savedPosition) : null;
+    };
+
+    // Function to handle window dragging
+    const handleWindowDrag = (id, newPosition) => {
+        localStorage.setItem(id, JSON.stringify(newPosition));
+    };
+
     return (
-        <div style={{ width: '100%', height: '500px' }}>
+        <div style={{ width: '100%', height: '700px' }}>
             <MuiGrid container style={{ width: '100%', height: '100%' }}>
+                <Paper elevation={5} style={{ width: '20%', margin: '40px', textAlign: 'center', padding: '20px' }}>
+                    <Typography>Check out the languages, frameworks, and skills I'm experienced in below. I'm a quick learner and I'm always up for adapting to new tech and systems. Just to show off a bit, the windows below can be dragged and moved around their container 😎</Typography>
+                </Paper>
                 <WindowContainer
                     title="Programming Languages"
                     id="programming-languages"
+                    position={getSavedPositions('programming-languages')}
+                    onDrag={(newPosition) => handleWindowDrag('programming-languages', newPosition)}
                     isActive={activeWindow === "programming-languages"}
                     setActiveWindow={handleSetActiveWindow}
                 >
@@ -90,8 +107,10 @@ function Skills() {
                 <WindowContainer
                     title="Frontend"
                     id="frontend"
+                    position={getSavedPositions('frontend')}
+                    onDrag={(newPosition) => handleWindowDrag('frontend', newPosition)}
                     isActive={activeWindow === "frontend"}
-                    setActiveWindow={() => handleSetActiveWindow("frontend")}
+                    setActiveWindow={() => handleSetActiveWindow('frontend')}
                 >
                     <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
                         <SkillCategory
@@ -110,8 +129,10 @@ function Skills() {
                 <WindowContainer
                     title="Backend"
                     id="backend"
+                    position={getSavedPositions('backend')}
+                    onDrag={(newPosition) => handleWindowDrag('backend', newPosition)}
                     isActive={activeWindow === "backend"}
-                    setActiveWindow={() => handleSetActiveWindow("backend")}
+                    setActiveWindow={() => handleSetActiveWindow('backend')}
                 >
                     <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
                         <SkillCategory
@@ -127,8 +148,10 @@ function Skills() {
                 <WindowContainer
                     title="Databases"
                     id="databases"
+                    position={getSavedPositions('databases')}
+                    onDrag={(newPosition) => handleWindowDrag('databases', newPosition)}
                     isActive={activeWindow === "databases"}
-                    setActiveWindow={() => handleSetActiveWindow("databases")}
+                    setActiveWindow={() => handleSetActiveWindow('databases')}
                 >
                     <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
                         <SkillCategory
@@ -144,8 +167,10 @@ function Skills() {
                 <WindowContainer
                     title="DevOps and Cloud"
                     id="devops-and-cloud"
+                    position={getSavedPositions('devops-and-cloud')}
+                    onDrag={(newPosition) => handleWindowDrag('devops-and-cloud', newPosition)}
                     isActive={activeWindow === "devops-and-cloud"}
-                    setActiveWindow={() => handleSetActiveWindow("devops-and-cloud")}
+                    setActiveWindow={() => handleSetActiveWindow('devops-and-cloud')}
                 >
                     <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
                         <SkillCategory
@@ -159,8 +184,10 @@ function Skills() {
                 <WindowContainer
                     title="Tools and Platforms"
                     id="tools-and-platforms"
+                    position={getSavedPositions('tools-and-platforms')}
+                    onDrag={(newPosition) => handleWindowDrag('tools-and-platforms', newPosition)}
                     isActive={activeWindow === "tools-and-platforms"}
-                    setActiveWindow={() => handleSetActiveWindow("tools-and-platforms")}
+                    setActiveWindow={() => handleSetActiveWindow('tools-and-platforms')}
                 >
                     <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
                         <SkillCategory

@@ -25,20 +25,10 @@ function Home() {
                 <Hero />
                 <Paper elevation={2}>
                     <Container style={{ padding: '20px' }}>
-                        <div style={{ width: '100%', height: '600px', position: 'relative', overflow: 'hidden' }}>
-                            <WindowContainer
-                                title="Draggable Window"
-                                style={{ width: '100%' }}
-                                id="draggableWindow" // Add an id
-                                setActiveWindow={setActiveWindow} // Pass setActiveWindow
-                                isActive={activeWindow === 'draggableWindow'} // Check if it's the active window
-                            >                                
+                        <Paper elevation={6} style={{ margin: '20px auto', width: '400px', overflow: 'hidden', padding: '5px' }}>
                             <CodeSnippet code={codeString} language="javascript" />
-                            </WindowContainer>
-                            <div style={{ position: 'absolute', bottom: 0 }}>
-                                <Bio />
-                            </div>
-                        </div>
+                        </Paper>
+                        <Bio />
                     </Container>
                 </Paper>
                 <div style={{ width: '100%', position: 'relative', overflow: 'hidden' }}>
