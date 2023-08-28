@@ -11,11 +11,6 @@ function Navbar() {
             <Link component={RouterLink} to="/" color="inherit" underline="none" sx={{ fontWeight: 400 }}>Scoot<span style={{ fontWeight: 600 }}>Dev</span></Link>
           </Typography>
         </div>
-        <nav>
-          <Link component={RouterLink} to="/" color="inherit" underline="none" sx={{ marginRight: 3 }}>Home</Link>
-          <Link component={RouterLink} to="/projects-and-skills" color="inherit" underline="none" sx={{ marginRight: 3 }}>Projects & Skills</Link>
-          <Link component={RouterLink} to="/contact" color="inherit" underline="none">Contact</Link>
-        </nav>
       </Toolbar>
     </AppBar>
   );

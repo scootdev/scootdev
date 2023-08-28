@@ -31,22 +31,29 @@ import SlackIcon from './icons/slack.svg';
 import SalesforceIcon from './icons/salesforce.svg';
 import HubspotIcon from './icons/hubspot.svg';
 
+const SkillItemContainer = styled('div')({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginRight: 10,
+    marginLeft: 10
+});
 
 const SkillCategoryGrid = styled(MuiGrid)({
     textAlign: 'center',
 });
 
 const SkillIconGrid = styled(MuiGrid)({
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 10,  // Reduced from 20
+    marginBottom: 10,  // Reduced from 20
     justifyContent: 'center',
 });
 
 const SkillIcon = styled('img')({
-    width: 50,
-    height: 50,
-    marginRight: 20,
-    marginLeft: 20
+    width: 40,
+    height: 40,
+    marginRight: 10,  // Reduced from 20
+    marginLeft: 10  // Reduced from 20
 });
 
 function SkillCategory({ icons }) {
@@ -54,7 +61,10 @@ function SkillCategory({ icons }) {
         <SkillCategoryGrid item xs={12}>
             <SkillIconGrid container alignItems="center">
                 {icons.map((icon, index) => (
-                    <SkillIcon key={index} src={icon.src} alt={icon.alt} />
+                    <SkillItemContainer key={index}>
+                        <SkillIcon src={icon.src} alt={icon.alt} />
+                        <Typography variant="caption">{icon.alt}</Typography>
+                    </SkillItemContainer>
                 ))}
             </SkillIconGrid>
         </SkillCategoryGrid>
@@ -80,131 +90,139 @@ function Skills() {
     };
 
     return (
-        <div style={{ width: '100%', height: '700px' }}>
-            <MuiGrid container style={{ width: '100%', height: '100%' }}>
-                <Paper elevation={5} style={{ width: '20%', margin: '40px', textAlign: 'center', padding: '20px' }}>
-                    <Typography>Check out the languages, frameworks, and skills I'm experienced in below. I'm a quick learner and I'm always up for adapting to new tech and systems. Just to show off a bit, the windows below can be dragged and moved around their container 😎</Typography>
+        <MuiGrid container style={{ padding: '0', marginBottom: '40px', width: '100%', position: 'relative', overflow: 'hidden', justifyContent: 'center' }}>
+            <WindowContainer
+                title="Skills & Languages"
+                id="text-content"
+                position={getSavedPositions('text-content')}
+                onDrag={(newPosition) => handleWindowDrag('text-content', newPosition)}
+                isActive={activeWindow === "text-content"}
+                setActiveWindow={handleSetActiveWindow}
+                style={{ width: '23%' }}
+            >
+            <Paper elevation={5} style={{ padding: '5px', marginTop: '4px', marginBottom: '2px' }}>
+                <Typography>Check out the languages, frameworks, and skills I'm experienced in. I'm a quick learner and I'm always up for adapting to new tech and systems. Just to show off a bit, these windows can be dragged and moved around within their parent container 😎</Typography>
+            </Paper>
+            </WindowContainer>
+            <WindowContainer
+                title="Programming Languages"
+                id="programming-languages"
+                position={getSavedPositions('programming-languages')}
+                onDrag={(newPosition) => handleWindowDrag('programming-languages', newPosition)}
+                isActive={activeWindow === "programming-languages"}
+                setActiveWindow={handleSetActiveWindow}
+            >
+                <Paper elevation={0} style={{ padding: '5px', marginTop: '4px', marginBottom: '2px' }}>
+                    <SkillCategory
+                        icons={[
+                            { src: JavaScriptIcon, alt: "JavaScript" },
+                            { src: PythonIcon, alt: "Python" },
+                            { src: PHPIcon, alt: "PHP" },
+                            { src: CSharpIcon, alt: "C#" },
+                        ]}
+                    />
                 </Paper>
-                <WindowContainer
-                    title="Programming Languages"
-                    id="programming-languages"
-                    position={getSavedPositions('programming-languages')}
-                    onDrag={(newPosition) => handleWindowDrag('programming-languages', newPosition)}
-                    isActive={activeWindow === "programming-languages"}
-                    setActiveWindow={handleSetActiveWindow}
-                >
-                    <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
-                        <SkillCategory
-                            icons={[
-                                { src: JavaScriptIcon, alt: "JavaScript" },
-                                { src: PythonIcon, alt: "Python" },
-                                { src: PHPIcon, alt: "PHP" },
-                                { src: CSharpIcon, alt: "C#" },
-                            ]}
-                        />
-                    </Paper>
-                </WindowContainer>
-                <WindowContainer
-                    title="Frontend"
-                    id="frontend"
-                    position={getSavedPositions('frontend')}
-                    onDrag={(newPosition) => handleWindowDrag('frontend', newPosition)}
-                    isActive={activeWindow === "frontend"}
-                    setActiveWindow={() => handleSetActiveWindow('frontend')}
-                >
-                    <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
-                        <SkillCategory
-                            icons={[
-                                { src: HTML5Icon, alt: "HTML5" },
-                                { src: CSS3Icon, alt: "CSS3" },
-                                { src: ReactIcon, alt: "React" },
-                                { src: AngularIcon, alt: "Angular" },
-                                { src: VueIcon, alt: "Vue.js" },
-                                { src: BootstrapIcon, alt: "Bootstrap" },
-                                { src: MUIIcon, alt: "Material-UI" },
-                            ]}
-                        />
-                    </Paper>
-                </WindowContainer>
-                <WindowContainer
-                    title="Backend"
-                    id="backend"
-                    position={getSavedPositions('backend')}
-                    onDrag={(newPosition) => handleWindowDrag('backend', newPosition)}
-                    isActive={activeWindow === "backend"}
-                    setActiveWindow={() => handleSetActiveWindow('backend')}
-                >
-                    <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
-                        <SkillCategory
-                            icons={[
-                                { src: NodeIcon, alt: "Node.js" },
-                                { src: ExpressIcon, alt: "Express" },
-                                { src: DjangoIcon, alt: "Django" },
-                                { src: FlaskIcon, alt: "Flask" },
-                            ]}
-                        />
-                    </Paper>
-                </WindowContainer>
-                <WindowContainer
-                    title="Databases"
-                    id="databases"
-                    position={getSavedPositions('databases')}
-                    onDrag={(newPosition) => handleWindowDrag('databases', newPosition)}
-                    isActive={activeWindow === "databases"}
-                    setActiveWindow={() => handleSetActiveWindow('databases')}
-                >
-                    <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
-                        <SkillCategory
-                            icons={[
-                                { src: MySQLIcon, alt: "MySQL" },
-                                { src: PostgreSQLIcon, alt: "PostgreSQL" },
-                                { src: MongoDBIcon, alt: "MongoDB" },
-                                { src: RedisIcon, alt: "Redis" },
-                            ]}
-                        />
-                    </Paper>
-                </WindowContainer>
-                <WindowContainer
-                    title="DevOps and Cloud"
-                    id="devops-and-cloud"
-                    position={getSavedPositions('devops-and-cloud')}
-                    onDrag={(newPosition) => handleWindowDrag('devops-and-cloud', newPosition)}
-                    isActive={activeWindow === "devops-and-cloud"}
-                    setActiveWindow={() => handleSetActiveWindow('devops-and-cloud')}
-                >
-                    <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
-                        <SkillCategory
-                            icons={[
-                                { src: DockerIcon, alt: "Docker" },
-                                { src: AWSIcon, alt: "AWS" },
-                            ]}
-                        />
-                    </Paper>
-                </WindowContainer>
-                <WindowContainer
-                    title="Tools and Platforms"
-                    id="tools-and-platforms"
-                    position={getSavedPositions('tools-and-platforms')}
-                    onDrag={(newPosition) => handleWindowDrag('tools-and-platforms', newPosition)}
-                    isActive={activeWindow === "tools-and-platforms"}
-                    setActiveWindow={() => handleSetActiveWindow('tools-and-platforms')}
-                >
-                    <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
-                        <SkillCategory
-                            icons={[
-                                { src: GitIcon, alt: "Git" },
-                                { src: WebpackIcon, alt: "Webpack" },
-                                { src: VSCodeIcon, alt: "VS Code" },
-                                { src: JIRAIcon, alt: "JIRA" },
-                                { src: SlackIcon, alt: "Slack" },
-                                { src: SalesforceIcon, alt: "Salesforce" },
-                                { src: HubspotIcon, alt: "Hubspot" },
-                            ]}
-                        />
-                    </Paper>
-                </WindowContainer>
-            </MuiGrid>
-        </div >
+            </WindowContainer>
+            <WindowContainer
+                title="Frontend"
+                id="frontend"
+                position={getSavedPositions('frontend')}
+                onDrag={(newPosition) => handleWindowDrag('frontend', newPosition)}
+                isActive={activeWindow === "frontend"}
+                setActiveWindow={() => handleSetActiveWindow('frontend')}
+            >
+                <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
+                    <SkillCategory
+                        icons={[
+                            { src: HTML5Icon, alt: "HTML5" },
+                            { src: CSS3Icon, alt: "CSS3" },
+                            { src: ReactIcon, alt: "React" },
+                            { src: AngularIcon, alt: "Angular" },
+                            { src: VueIcon, alt: "Vue.js" },
+                            { src: BootstrapIcon, alt: "Bootstrap" },
+                            { src: MUIIcon, alt: "Material-UI" },
+                        ]}
+                    />
+                </Paper>
+            </WindowContainer>
+            <WindowContainer
+                title="Backend"
+                id="backend"
+                position={getSavedPositions('backend')}
+                onDrag={(newPosition) => handleWindowDrag('backend', newPosition)}
+                isActive={activeWindow === "backend"}
+                setActiveWindow={() => handleSetActiveWindow('backend')}
+            >
+                <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
+                    <SkillCategory
+                        icons={[
+                            { src: NodeIcon, alt: "Node.js" },
+                            { src: ExpressIcon, alt: "Express" },
+                            { src: DjangoIcon, alt: "Django" },
+                            { src: FlaskIcon, alt: "Flask" },
+                        ]}
+                    />
+                </Paper>
+            </WindowContainer>
+            <WindowContainer
+                title="Databases"
+                id="databases"
+                position={getSavedPositions('databases')}
+                onDrag={(newPosition) => handleWindowDrag('databases', newPosition)}
+                isActive={activeWindow === "databases"}
+                setActiveWindow={() => handleSetActiveWindow('databases')}
+            >
+                <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
+                    <SkillCategory
+                        icons={[
+                            { src: MySQLIcon, alt: "MySQL" },
+                            { src: PostgreSQLIcon, alt: "PostgreSQL" },
+                            { src: MongoDBIcon, alt: "MongoDB" },
+                            { src: RedisIcon, alt: "Redis" },
+                        ]}
+                    />
+                </Paper>
+            </WindowContainer>
+            <WindowContainer
+                title="DevOps and Cloud"
+                id="devops-and-cloud"
+                position={getSavedPositions('devops-and-cloud')}
+                onDrag={(newPosition) => handleWindowDrag('devops-and-cloud', newPosition)}
+                isActive={activeWindow === "devops-and-cloud"}
+                setActiveWindow={() => handleSetActiveWindow('devops-and-cloud')}
+            >
+                <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
+                    <SkillCategory
+                        icons={[
+                            { src: DockerIcon, alt: "Docker" },
+                            { src: AWSIcon, alt: "AWS" },
+                        ]}
+                    />
+                </Paper>
+            </WindowContainer>
+            <WindowContainer
+                title="Tools and Platforms"
+                id="tools-and-platforms"
+                position={getSavedPositions('tools-and-platforms')}
+                onDrag={(newPosition) => handleWindowDrag('tools-and-platforms', newPosition)}
+                isActive={activeWindow === "tools-and-platforms"}
+                setActiveWindow={() => handleSetActiveWindow('tools-and-platforms')}
+            >
+                <Paper elevation={0} style={{ padding: '5px', marginTop: '7px', marginBottom: '4px' }}>
+                    <SkillCategory
+                        icons={[
+                            { src: GitIcon, alt: "Git" },
+                            { src: WebpackIcon, alt: "Webpack" },
+                            { src: VSCodeIcon, alt: "VS Code" },
+                            { src: JIRAIcon, alt: "JIRA" },
+                            { src: SlackIcon, alt: "Slack" },
+                            { src: SalesforceIcon, alt: "Salesforce" },
+                            { src: HubspotIcon, alt: "Hubspot" },
+                        ]}
+                    />
+                </Paper>
+            </WindowContainer>
+        </MuiGrid>
     );
 }
 

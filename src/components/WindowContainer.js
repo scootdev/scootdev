@@ -18,8 +18,7 @@ function WindowContainer({ children, style, title, id, setActiveWindow, isActive
                 style={{
                     display: 'flex',
                     justifyContent: 'center',
-                    maxWidth: '80%',
-                    margin: 'auto',
+                    margin: 'auto 0',
                     ...style,
                 }}
             >
