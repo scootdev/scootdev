@@ -7,10 +7,6 @@ import CodeSnippet from '../../components/CodeSnippet';
 import { Container, Paper, Grid, Typography } from '@mui/material';
 import AnimatedBackground from '../../components/AnimatedBackground';
 
-function TestWindow({ title }) {
-    return <div style={{ padding: '5px' }}>This is {title} window.</div>;
-}
-
 function Home() {
     const codeString = `if (name == 'Scott' || 'scoot') {
     currentTitle = 'Full-Stack Web Developer'
