@@ -90,7 +90,7 @@ function Skills() {
     };
 
     return (
-        <MuiGrid container style={{ padding: '0', marginBottom: '40px', width: '100%', position: 'relative', overflow: 'hidden', justifyContent: 'center' }}>
+        <MuiGrid container style={{ height: '800px', padding: '0', width: '100%', position: 'relative', overflow: 'hidden', justifyContent: 'center' }}>
             <WindowContainer
                 title="Skills & Languages"
                 id="text-content"

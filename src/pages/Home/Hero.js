@@ -15,7 +15,7 @@ function Hero() {
                             <Grid item xs={12} sm={6} md={5} style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <div style={{ position: 'absolute', width: '125px', height: '250px', left: '15%', top: '12.5%' }}>
                                     <IconButton href="https://www.linkedin.com/in/scottharris-az/" target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', top: '0%', left: '25%' }}><LinkedInIcon /></IconButton>
-                                    <IconButton href="https://github.com/scottsharris-az" target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', top: '25%', left: '5%' }}><GitHubIcon /></IconButton>
+                                    <IconButton href="https://github.com/scootdev" target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', top: '25%', left: '5%' }}><GitHubIcon /></IconButton>
                                     <IconButton href="https://twitter.com/scoot__o7" target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', top: '50%', left: '5%' }}><TwitterIcon /></IconButton>
                                     <IconButton href="/resume.pdf" target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', bottom: '10%', left: '25%' }}><DescriptionIcon /></IconButton>
                                 </div>
