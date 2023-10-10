@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/scootdev/static/css/main.6024c8f7.css",
+    "main.js": "/scootdev/static/js/main.1abc39b8.js",
+    "static/js/787.3489c29c.chunk.js": "/scootdev/static/js/787.3489c29c.chunk.js",
+    "static/media/flask.svg": "/scootdev/static/media/flask.8f4c1cbf9f9954fd29e8a170b8390656.svg",
+    "static/media/postgresql.svg": "/scootdev/static/media/postgresql.a398871f6899ddf8cff701c7309a854f.svg",
+    "static/media/mysql.svg": "/scootdev/static/media/mysql.6c1d0031e5acd51df441531d3d2d7bd8.svg",
+    "static/media/amazonaws.svg": "/scootdev/static/media/amazonaws.d2d0c201493de550eb4259ffdfc2715b.svg",
+    "static/media/react.svg": "/scootdev/static/media/react.e94ebdf90bd29efb54e5c723b10e216a.svg",
+    "static/media/docker.svg": "/scootdev/static/media/docker.43d067489e9779bbb0b6a79a361ea8b6.svg",
+    "static/media/nodedotjs.svg": "/scootdev/static/media/nodedotjs.7ae9928409f6fa80e881e4135f2bd271.svg",
+    "static/media/mui.svg": "/scootdev/static/media/mui.4b5ba15d581c50130b625ac5d467f728.svg",
+    "static/media/python.svg": "/scootdev/static/media/python.c36ebb99824f20e5723947e6624ac063.svg",
+    "static/media/redis.svg": "/scootdev/static/media/redis.80a056ac9775f2729b7aa6684430006f.svg",
+    "static/media/php.svg": "/scootdev/static/media/php.73c8fc53eb29138602299eef50b592e1.svg",
+    "static/media/slack.svg": "/scootdev/static/media/slack.a1f4ff969c74f3aa6a1b08bda2696100.svg",
+    "static/media/javascript.svg": "/scootdev/static/media/javascript.9f98faed195315832462deb05383c1bd.svg",
+    "static/media/bootstrap.svg": "/scootdev/static/media/bootstrap.0adbf1b82802ef62e701b5a90b0cdb1a.svg",
+    "static/media/csharp.svg": "/scootdev/static/media/csharp.2b85b3c807a10918e29d2f15051827f7.svg",
+    "static/media/express.svg": "/scootdev/static/media/express.8784f755022ac4d9e2b62dab9d418c6f.svg",
+    "static/media/git.svg": "/scootdev/static/media/git.0d964db71a38d8850eb665d1c10fa95c.svg",
+    "index.html": "/scootdev/index.html",
+    "static/media/hubspot.svg": "/scootdev/static/media/hubspot.abdf7a4f080d189b6f0ff5ccc4be2659.svg",
+    "static/media/webpack.svg": "/scootdev/static/media/webpack.8a0a72c2bf6fe79566fbb247584bcf1d.svg",
+    "static/media/django.svg": "/scootdev/static/media/django.4db8f42c108ed90321a6ba2d6686f555.svg",
+    "static/media/salesforce.svg": "/scootdev/static/media/salesforce.a280cc1987288aa44198b47a5f542645.svg",
+    "static/media/mongodb.svg": "/scootdev/static/media/mongodb.66f2dad54d9684b91aab2d2d91f1d59c.svg",
+    "static/media/visualstudiocode.svg": "/scootdev/static/media/visualstudiocode.684248060de561ef61afef7cf5d6a80c.svg",
+    "static/media/jira.svg": "/scootdev/static/media/jira.d967d56828f5b31b9f764947adad168b.svg",
+    "static/media/css3.svg": "/scootdev/static/media/css3.4a5a82acfffe120744964d95368b9278.svg",
+    "static/media/html5.svg": "/scootdev/static/media/html5.cf23f1e90435a349bd297713a56a4d6f.svg",
+    "static/media/angular.svg": "/scootdev/static/media/angular.03824165c0282287df3141498cae08b5.svg",
+    "static/media/vuedotjs.svg": "/scootdev/static/media/vuedotjs.4b67b3b55026c1904ac85983d391d8ac.svg",
+    "main.6024c8f7.css.map": "/scootdev/static/css/main.6024c8f7.css.map",
+    "main.1abc39b8.js.map": "/scootdev/static/js/main.1abc39b8.js.map",
+    "787.3489c29c.chunk.js.map": "/scootdev/static/js/787.3489c29c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6024c8f7.css",
+    "static/js/main.1abc39b8.js"
+  ]
+}
